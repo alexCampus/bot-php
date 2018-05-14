@@ -30,7 +30,7 @@ if($method == 'POST'){
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	
-	$data ={
+	$data = [
             facebook : [
                 {
                     attachment: {
@@ -48,7 +48,7 @@ if($method == 'POST'){
                     text: "Une location ?"
                 }
             ]
-    };
+    ];
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
