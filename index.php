@@ -32,22 +32,22 @@ if($method == 'POST'){
 	
 	
             $facebook = [
-                {
-                    attachment: {
+                [
+                    attachment: [
                         type    : "template",
                         payload : finalData
-                    }
-                },
-                {
+                    ]
+                ],
+                [
                     text: "Que souhaitez vous faire maintenant ?"
-                },
-                {
+                ],
+                [
                     text: "Une autre recherche pour un achat?"
-                },
-                {
+                ],
+                [
                     text: "Une location ?"
-                }
-            ]
+                ]
+            ];
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
