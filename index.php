@@ -30,28 +30,10 @@ if($method == 'POST'){
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	
-	
-            $facebook = [
-                [
-                    attachment: [
-                        type    : "template",
-                        payload : finalData
-                    ]
-                ],
-                [
-                    text: "Que souhaitez vous faire maintenant ?"
-                ],
-                [
-                    text: "Une autre recherche pour un achat?"
-                ],
-                [
-                    text: "Une location ?"
-                ]
-            ];
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
-	$response->data = $facebook;
+	$response->data['text'] = "Que souhaitez vous faire maintenant ?";
 	$response->source = "webhook";
 	echo json_encode($response);
 }
