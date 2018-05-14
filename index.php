@@ -15,7 +15,7 @@ if($method == 'POST'){
 	$resultCity = get_object_vars($jsonCity[0]);
 
 	if ($resultCity['nom'] != null) {
-		$speech = $resultCity['codeDepartement'];
+		$speech = "Le code du département est : " . $resultCity['codeDepartement'] . ' .<br> Et il y a ' .  . number_format($resultCity['population']) . ' habitants.' ;
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
 	};
