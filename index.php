@@ -30,10 +30,10 @@ if($method == 'POST'){
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	};
-	
+
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
-	$response->displayText = $speech;
+	//$response->displayText = $speech;
 	$response->fulfillmentMessages['text'] = "Que souhaitez vous faire maintenant ?";
 	$response->source = "webhook";
 	echo json_encode($response);
