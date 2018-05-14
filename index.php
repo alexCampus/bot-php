@@ -9,7 +9,7 @@ if($method == 'POST'){
 	
 	$text = $json->queryResult->parameters;
 	$text1 = get_object_vars($text);
-	var_dump('TEXT', $text1);
+	var_dump('TEXT', $text1['geo-city-fr']);
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 	var_dump('Json City', $jsonCity);
