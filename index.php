@@ -30,8 +30,8 @@ if($method == 'POST'){
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	
-	$data = [
-            facebook : [
+	
+            $facebook = [
                 {
                     attachment: {
                         type    : "template",
@@ -48,11 +48,10 @@ if($method == 'POST'){
                     text: "Une location ?"
                 }
             ]
-    ];
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
-	$response->data = $data;
+	$response->data = $facebook;
 	$response->source = "webhook";
 	echo json_encode($response);
 }
