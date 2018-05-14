@@ -10,7 +10,7 @@ if($method == 'POST'){
 	$text = $json->result->parameters->text;
 
 	switch ($text) {
-		case 'Salut !':
+		case 'Salut':
 			$speech = "Hi, Nice to meet you";
 			break;
 
@@ -18,15 +18,15 @@ if($method == 'POST'){
 			$speech = "Hi, Nice to meet you";
 			break;
 
-		case 'Bonjour !':
+		case 'Bonjour':
 			$speech = "Hi, Nice to meet you";
 			break;
 
-		case 'Salutations !':
+		case 'Salutations':
 			$speech = "Hi, Nice to meet you";
 			break;
 
-		case 'Bienvenue !':
+		case 'Bienvenue':
 			$speech = "Hi, Nice to meet you";
 			break;
 		
@@ -38,7 +38,7 @@ if($method == 'POST'){
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
 	//$response->displayText = $speech;
-	$response->fulfillmentMessages[]['text']['text'] = ["Que souhaitez vous faire maintenant ?"];
+	$response->fulfillmentMessages[]['text']['text'] = [$speech];
 	$response->source = "webhook";
 	echo json_encode($response);
 }
