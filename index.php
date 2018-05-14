@@ -14,6 +14,10 @@ if($method == 'POST'){
 			$speech = "Hi, Nice to meet you";
 			break;
 
+		case 'Hey':
+			$speech = "Hi, Nice to meet you";
+			break;
+
 		case 'Bonjour !':
 			$speech = "Hi, Nice to meet you";
 			break;
