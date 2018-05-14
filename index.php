@@ -12,7 +12,8 @@ if($method == 'POST'){
 	
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $cityArray['geo-city-fr'] . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
-	
+	var_dump('CITY', $cityArray['geo-city-fr']);
+	var_dump('JSON', $jsonCity);
 	if ($jsonCity->nom != null) {
 		$speech = $jsonCity->code;
 	} else {
