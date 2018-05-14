@@ -32,9 +32,9 @@ if($method == 'POST'){
 	};
 	
 	$response = new \stdClass();
-	$response->speech = $speech;
+	$response->fulfillmentText = $speech;
 	$response->displayText = $speech;
-	$response->data['text'] = "Que souhaitez vous faire maintenant ?";
+	$response->fulfillmentMessages['text'] = "Que souhaitez vous faire maintenant ?";
 	$response->source = "webhook";
 	echo json_encode($response);
 }
