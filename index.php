@@ -15,7 +15,7 @@ if($method == 'POST'){
 	$resultCity = get_object_vars($jsonCity[0]);
 
 	if ($resultCity['nom'] != null) {
-		$speech = $jsonCity['code'];
+		$speech = $resultCity['codeDepartement'];
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
 	};
