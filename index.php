@@ -6,7 +6,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-	var_dump($json->queryResult->parameters->text);
+
 	$text = $json->queryResult->parameters->text;
 
 	switch ($text) {
