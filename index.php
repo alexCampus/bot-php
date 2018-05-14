@@ -9,39 +9,17 @@ if($method == 'POST'){
 
 	$text = $json->queryResult->parameters->text;
 
-	switch ($text) {
-		case 'Salut':
-			$speech = "Hi, Nice to meet you";
-			break;
+	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
+	$jsonCity = json_decode($requestCity);
 
-		case 'Hey':
-			$speech = "Hi, Nice to meet you";
-			break;
-
-		case 'Bonjour':
-			$speech = "Hi, Nice to meet you";
-			break;
-
-		case 'Salutations':
-			$speech = "Hi, Nice to meet you";
-			break;
-
-		case 'Bienvenue':
-			$speech = "Hi, Nice to meet you. Comment ca va?";
-			break;
-
-		case 'Bien':
-			$speech = "Moi ca va pas mal";
-			break;
-		
-		default:
-			$speech = "Sorry, I didnt get that. Please ask me something else.";
-			break;
+	if ($jsonCity->nom != null) {
+		$speech = $jsonCity->code;
+	} else {
+		$speech = "Désolé je ne connais pas cette ville.";
 	};
 
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
-	//$response->displayText = $speech;
 	$response->fulfillmentMessages[]['text']['text'] = [$speech];
 	$response->source = "webhook";
 	echo json_encode($response);
