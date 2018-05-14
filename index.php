@@ -7,12 +7,12 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 	
-	$text = $json->queryResult->parameters;
-	$text1 = get_object_vars($text);
-	var_dump('TEXT', $text1['geo-city-fr']);
-	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
+	$text      = $json->queryResult->parameters;
+	$cityArray = get_object_vars($text);
+	
+	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text1['geo-city-fr'] . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
-	var_dump('Json City', $jsonCity);
+	
 	if ($jsonCity->nom != null) {
 		$speech = $jsonCity->code;
 	} else {
