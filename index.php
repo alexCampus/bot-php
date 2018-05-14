@@ -29,6 +29,7 @@ if($method == 'POST'){
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
+	};
 	
 	$response = new \stdClass();
 	$response->speech = $speech;
