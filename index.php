@@ -34,7 +34,7 @@ if($method == 'POST'){
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
 	//$response->displayText = $speech;
-	$response->fulfillmentMessages = ["Que souhaitez vous faire maintenant ?"];
+	$response->fulfillmentMessages[]['text'] = ["Que souhaitez vous faire maintenant ?"];
 	$response->source = "webhook";
 	echo json_encode($response);
 }
