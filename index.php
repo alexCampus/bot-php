@@ -43,13 +43,10 @@ if($method == 'POST'){
 		$response->fulfillmentText = $speech;
 		$response->fulfillmentMessages[]['text']['text'] = [$speech];
 	} else {
-		// $response->fulfillmentMessages[]['text']['text'] = [$speech[1]];
-		// 	$i++;
 		$i = 0;
 		foreach ($speech as $key => $value) {
 			$response->fulfillmentText = $speech[$i]->nom;
-			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom];
-			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->codeDepartement];
+			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . $speech[$i]->population . ' habitants.'];
 			$i++;
 		}
 	}
