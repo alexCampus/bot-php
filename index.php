@@ -23,6 +23,7 @@ if($method == 'POST'){
 		$i = 0;
 		foreach ($jsonCity as $key => $value) {
 			$speech[$i] = $value;
+			$i++;
 		}
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
