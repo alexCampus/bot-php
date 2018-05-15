@@ -8,6 +8,7 @@ if($method == 'POST'){
 	$json = json_decode($requestBody);
 	
 	$text      = $json->queryResult->parameters;
+	var_dump($text);
 	foreach ($text as $key => $t) {
 		var_dump($key, $t);
 		
