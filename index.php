@@ -27,7 +27,7 @@ if($method == 'POST'){
 	// $resultCity = get_object_vars($jsonCity[0]);
 
 	if (count($jsonCity) === 1) {
-		$speech = $text . "est dans le département : " . $jsonCity[0]->codeDepartement . ' . Et il y a ' . number_format($jsonCity[0]->population) . ' habitants.' ;
+		$speech = $text . " est dans le département : " . $jsonCity[0]->codeDepartement . ' . Et il y a ' . number_format($jsonCity[0]->population) . ' habitants.' ;
 	} elseif (count($jsonCity) > 1) {
 		$i = 0;
 		foreach ($jsonCity as $key => $value) {
