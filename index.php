@@ -1,26 +1,20 @@
 <?php 
 
-$method = $_SERVER['REQUEST_METHOD'];
-
+$method     = $_SERVER['REQUEST_METHOD'];
+$resultCity = array();
 // Process only when method is POST
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 	
 	$text      = $json->queryResult->parameters->ville;
-	var_dump($text);
-	// foreach ($text as $key => $t) {
-	// 	var_dump($key, $t);
-		
-	// };
-	
 	
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 	foreach ($jsonCity as $key => $value) {
-		var_dump($value->nom);
-		var_dump($value->codeDepartement);
+		array_push($resultCity, $value);
 	}
+	var_dump($resultCity);
 	// $resultCity = get_object_vars($jsonCity[0]);
 
 	if ($resultCity['nom'] != null) {
