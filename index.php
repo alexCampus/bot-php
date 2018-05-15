@@ -37,7 +37,7 @@ if($method == 'POST'){
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
 	};
-	var_dump(count($speech));
+
 	$response = new \stdClass();
 	if (count($speech) === 1) {
 		$response->fulfillmentText = $speech;
