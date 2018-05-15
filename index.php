@@ -14,12 +14,12 @@ if($method == 'POST'){
 	// foreach ($jsonCity as $key => $value) {
 	// 	array_push($resultCity, $value);
 	// }
-	var_dump($jsonCity);
+	var_dump(count($jsonCity));
 	// $resultCity = get_object_vars($jsonCity[0]);
 
-	if (count($jsonCity) > 0 && count($jsonCity) < 2) {
+	if (count($jsonCity) === 1) {
 		$speech = "Le code du département est : " . $jsonCity[0]['codeDepartement'] . ' . Et il y a ' . number_format($jsonCity[0]['population']) . ' habitants.' ;
-	} elseif (count($jsonCity) > 2) {
+	} elseif (count($jsonCity) > 1) {
 		$i = 0;
 		foreach ($jsonCity as $key => $value) {
 			$speech[$i] = $value;
