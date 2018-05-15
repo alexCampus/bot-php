@@ -18,14 +18,12 @@ if($method == 'POST'){
 	$json = json_decode($requestBody);
 	
 	$text      = $json->queryResult->parameters->ville;
-	var_dump($text);
+	
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 	// foreach ($jsonCity as $key => $value) {
 	// 	array_push($resultCity, $value);
 	// }
-	var_dump($jsonCity);
-	var_dump(count($jsonCity));
 	// $resultCity = get_object_vars($jsonCity[0]);
 
 	if (count($jsonCity) === 1) {
@@ -39,7 +37,7 @@ if($method == 'POST'){
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
 	};
-	// var_dump($speech);
+	var_dump(count($speech));
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
 	$response->fulfillmentMessages[]['text']['text'] = [$speech];
