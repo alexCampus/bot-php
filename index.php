@@ -45,7 +45,7 @@ if($method == 'POST'){
 	} else {
 		foreach ($speech as $key => $value) {
 			$response->fulfillmentText = $speech;
-			$response->fulfillmentMessages[]['text']['text'] = [$speech];
+			$response->fulfillmentMessages[]['text']['text'] = [$value];
 		}
 	}
 	
