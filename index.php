@@ -7,7 +7,7 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 	
-	$text      = $json->queryResult->parameters;
+	$text      = $json->queryResult->parameters->ville;
 	var_dump($text);
 	foreach ($text as $key => $t) {
 		var_dump($key, $t);
