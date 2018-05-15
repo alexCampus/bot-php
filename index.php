@@ -49,6 +49,7 @@ if($method == 'POST'){
 		foreach ($speech as $key => $value) {
 			$response->fulfillmentText = $speech[$i]->nom;
 			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom];
+			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->codeDepartement];
 			$i++;
 		}
 	}
