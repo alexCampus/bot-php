@@ -2,6 +2,16 @@
 
 $method     = $_SERVER['REQUEST_METHOD'];
 $resultCity = array();
+function skip_accents( $str, $charset='utf-8' ) {
+ 
+    $str = htmlentities( $str, ENT_NOQUOTES, $charset );
+    
+    $str = preg_replace( '#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str );
+    $str = preg_replace( '#&([A-za-z]{2})(?:lig);#', '\1', $str );
+    $str = preg_replace( '#&[^;]+;#', '', $str );
+    
+    return $str;
+}
 // Process only when method is POST
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
@@ -9,7 +19,7 @@ if($method == 'POST'){
 	
 	$text      = $json->queryResult->parameters->ville;
 	var_dump($text);
-	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
+	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 	// foreach ($jsonCity as $key => $value) {
 	// 	array_push($resultCity, $value);
