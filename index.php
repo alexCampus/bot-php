@@ -17,12 +17,17 @@ if($method == 'POST'){
 	var_dump($jsonCity);
 	// $resultCity = get_object_vars($jsonCity[0]);
 
-	if (count($jsonCity) > 0) {
-		$speech = "Le code du département est : " . $resultCity['codeDepartement'] . ' . Et il y a ' . number_format($resultCity['population']) . ' habitants.' ;
+	if (count($jsonCity) > 0 && count($jsonCity) < 1) {
+		$speech = "Le code du département est : " . $jsonCity[0]['codeDepartement'] . ' . Et il y a ' . number_format($jsonCity[0]['population']) . ' habitants.' ;
+	} elseif (count($jsonCity) > 1) {
+		$i = 0;
+		foreach ($jsonCity as $key => $value) {
+			$speech[$i] = $value;
+		}
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
 	};
-
+	var_dump($speech);
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
 	$response->fulfillmentMessages[]['text']['text'] = [$speech];
