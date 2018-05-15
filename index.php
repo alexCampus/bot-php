@@ -46,7 +46,7 @@ if($method == 'POST'){
 		$i = 0;
 		foreach ($speech as $key => $value) {
 			// $response->fulfillmentText['messages'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
-			$t =  array('text'=>[$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']));
+			$t =  array('text'=>[$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']);
 			
 			// $response->fulfillmentMessages[]['text'] += array(
 			// 	'text' => [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']
