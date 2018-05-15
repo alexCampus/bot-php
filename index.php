@@ -9,7 +9,7 @@ if($method == 'POST'){
 	
 	$text      = $json->queryResult->parameters;
 	foreach ($text as $key => $t) {
-		var_dump($key, $t->geo-city-fr);
+		var_dump($key, $t);
 		
 	};
 	$cityArray = get_object_vars($text);
