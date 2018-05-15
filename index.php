@@ -11,13 +11,13 @@ if($method == 'POST'){
 	
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . $text . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
-	foreach ($jsonCity as $key => $value) {
-		array_push($resultCity, $value);
-	}
-	var_dump($resultCity);
+	// foreach ($jsonCity as $key => $value) {
+	// 	array_push($resultCity, $value);
+	// }
+	var_dump($jsonCity);
 	// $resultCity = get_object_vars($jsonCity[0]);
 
-	if ($resultCity['nom'] != null) {
+	if (count($jsonCity) > 0) {
 		$speech = "Le code du département est : " . $resultCity['codeDepartement'] . ' . Et il y a ' . number_format($resultCity['population']) . ' habitants.' ;
 	} else {
 		$speech = "Désolé je ne connais pas cette ville.";
