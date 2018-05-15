@@ -46,10 +46,10 @@ if($method == 'POST'){
 		// $response->fulfillmentMessages[]['text']['text'] = [$speech[1]];
 		// 	$i++;
 		// $i = 0;
-		foreach ($speech as $key => $value) {
-			$response->fulfillmentText = $speech;
-			$response->fulfillmentMessages[]['text']['text'] = [$value->nom];
-		}
+		// foreach ($speech as $key => $value) {
+			$response->fulfillmentText = $speech[0];
+			$response->fulfillmentMessages[]['text']['text'] = [$speech[0]->nom];
+		// }
 	}
 	
 	$response->source = "webhook";
