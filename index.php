@@ -39,9 +39,16 @@ if($method == 'POST'){
 	};
 	var_dump(count($speech));
 	$response = new \stdClass();
-	$response->fulfillmentText = $speech;
-	$response->fulfillmentMessages[]['text']['text'] = [$speech];
-	$response->fulfillmentMessages[]['text']['text'] = ['Hello'];
+	if (count($speech) === 1) {
+		$response->fulfillmentText = $speech;
+		$response->fulfillmentMessages[]['text']['text'] = [$speech];
+	} else {
+		foreach ($speech as $key => $value) {
+			$response->fulfillmentText = $speech;
+			$response->fulfillmentMessages[]['text']['text'] = [$speech];
+		}
+	}
+	
 	$response->source = "webhook";
 	echo json_encode($response);
 }
