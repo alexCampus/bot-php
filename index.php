@@ -44,17 +44,18 @@ if($method == 'POST'){
 		$response->fulfillmentMessages[]['text']['text'] = [$speech];
 	} else {
 		$i = 0;
+		$t = array();
 		foreach ($speech as $key => $value) {
 			// $response->fulfillmentText['messages'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
 			// $response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
-			array_push($response->fulfillmentMessages[]['text']['text'], [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']);
+			array_push($t, [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']);
 			// $response->fulfillmentMessages[]['text'] += array(
 			// 	'text' => [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.']
 			// );
 			$i++;
 		}
+	var_dump($t);
 	}
-	
 	$response->source = "webhook";
 	echo json_encode($response);
 }
