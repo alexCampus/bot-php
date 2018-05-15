@@ -51,7 +51,7 @@ if($method == 'POST'){
 			// $response->fulfillmentText['messages'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
 			// $response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
 			$response->fulfillmentMessages[]['text'] = array(
-				'text' : [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];);
+				'text' => [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];);
 			$i++;
 		}
 	}
