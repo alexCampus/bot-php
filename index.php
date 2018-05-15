@@ -14,6 +14,7 @@ if($method == 'POST'){
 	// foreach ($jsonCity as $key => $value) {
 	// 	array_push($resultCity, $value);
 	// }
+	var_dump($jsonCity);
 	var_dump(count($jsonCity));
 	// $resultCity = get_object_vars($jsonCity[0]);
 
