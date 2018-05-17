@@ -49,9 +49,7 @@ if($method == 'POST'){
 				$i++;
 			}
 		}
-	} elseif(isset($music)) {
-		var_dump($music);
-		var_dump($json->queryResult->parameters);
+	} elseif($music != null) {
 		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi";
 		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi"];
 	}
