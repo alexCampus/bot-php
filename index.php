@@ -23,7 +23,7 @@ if($method == 'POST'){
 	$jsonCity = json_decode($requestCity);
 
 	if (count($jsonCity) === 1) {
-		$speech = $text . " est dans le département : " . $jsonCity[0]->codeDepartement . ' . Et il y a ' . number_format($jsonCity[0]->population) . ' habitants.' ;
+		$speech = $text . " est dans le département : " . $jsonCity[0]->codeDepartement . ' . Et il y a ' . number_format($jsonCity[0]->population) . ' habitants.Quel est ton groupe de musique préféré?' ;
 	} elseif (count($jsonCity) > 1) {
 		$i = 0;
 		foreach ($jsonCity as $key => $value) {
@@ -41,7 +41,9 @@ if($method == 'POST'){
 	} else {
 		$i = 0;
 		foreach ($speech as $key => $value) {
-			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants. Quel est ton groupe de musique préféré?' ];
+			if ($speech[$i]->nom === $text) {
+				$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants. Quel est ton groupe de musique préféré?' ];
+			}
 			$i++;
 		}
 	}
