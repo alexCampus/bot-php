@@ -18,7 +18,7 @@ if($method == 'POST'){
 	$json = json_decode($requestBody);
 	var_dump($json);
 	$text      = $json->queryResult->parameters->ville;
-	$music     = $json->queryResult->parameters->music-artist
+	$music     = $json->queryResult->parameters->music-artist;
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 
