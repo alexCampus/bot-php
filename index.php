@@ -57,8 +57,8 @@ if($method == 'POST'){
 			array_push($array, $jsonMusic->topalbums->album[$i]->name);
 		}
 
-		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi";
-		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi.\n\n. Mes titres préférés sont : " . $array[0] . " et " . $array[1]];
+		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi.\n\n Mes titres préférés sont : " . $array[0] . " et " . $array[1]";
+		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi.\n\n Mes titres préférés sont : " . $array[0] . " et " . $array[1]];
 	}
 	
 	
