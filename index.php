@@ -54,7 +54,7 @@ if($method == 'POST'){
 		$jsonMusic    = json_decode($requestMusic);
 		$array = [];
 		for ($i=0; $i <= 3; $i++) { 
-			array_push($array, $jsonMusic->topalbums->album[$i]);
+			array_push($array, $jsonMusic->topalbums->album[$i]['name']);
 		}
 		var_dump($array);
 
