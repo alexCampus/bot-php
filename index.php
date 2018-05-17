@@ -16,9 +16,9 @@ function skip_accents( $str, $charset='utf-8' ) {
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-	
+	var_dump($json);
 	$text      = $json->queryResult->parameters->ville;
-	
+	$music     = $json->queryResult->parameters->music-artist
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
 
