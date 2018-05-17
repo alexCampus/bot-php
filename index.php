@@ -49,11 +49,10 @@ if($method == 'POST'){
 				$i++;
 			}
 		}
-	} else {
-		var_dump($music);
-		var_dump($json->queryResult->parameters);
-		$response->fulfillmentText = "Super j'adore cet artiste moi aussi";
-		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore cet artiste moi aussi"];
+	} elseif(isset($music)) {
+		
+		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi";
+		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi"];
 	}
 	
 	
