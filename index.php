@@ -19,6 +19,7 @@ if($method == 'POST'){
 
 	$text      = $json->queryResult->parameters->ville;
 	$music     = $json->queryResult->parameters->music-artist;
+
 	if ($text != null) {
 		$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 		$jsonCity = json_decode($requestCity);
@@ -48,7 +49,7 @@ if($method == 'POST'){
 				$i++;
 			}
 		}
-	} elseif ($music != null) {
+	} else {
 		$response->fulfillmentText = "Super j'adore cet artiste moi aussi";
 		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore cet artiste moi aussi"];
 	}
