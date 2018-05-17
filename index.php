@@ -52,7 +52,11 @@ if($method == 'POST'){
 	} elseif($music != null) {
 		$requestMusic = file_get_contents("http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=". $music ."&api_key=7d9337a7356751d48d0b791b87379ce7&format=json");
 		$jsonMusic    = json_decode($requestMusic);
-		var_dump($jsonMusic->topalbums->album);
+		$array = [];
+		for ($i=0; $i <= 3; $i++) { 
+			array_push($array, $jsonMusic->topalbums->album[$i]);
+		}
+		var_dump($array);
 
 		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi";
 		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi"];
