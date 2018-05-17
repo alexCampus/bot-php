@@ -16,15 +16,11 @@ function skip_accents( $str, $charset='utf-8' ) {
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-	
+	var_dump($json->queryResult);
 	$text      = $json->queryResult->parameters->ville;
-	
+	var_dump($text);
 	$requestCity = file_get_contents("https://geo.api.gouv.fr/communes?nom=" . skip_accents($text) . "&fields=nom,code,codesPostaux,codeDepartement,codeRegion,population&format=json&geometry=centre");
 	$jsonCity = json_decode($requestCity);
-	// foreach ($jsonCity as $key => $value) {
-	// 	array_push($resultCity, $value);
-	// }
-	// $resultCity = get_object_vars($jsonCity[0]);
 
 	if (count($jsonCity) === 1) {
 		$speech = $text . " est dans le département : " . $jsonCity[0]->codeDepartement . ' . Et il y a ' . number_format($jsonCity[0]->population) . ' habitants.' ;
@@ -45,8 +41,7 @@ if($method == 'POST'){
 	} else {
 		$i = 0;
 		foreach ($speech as $key => $value) {
-			// $response->fulfillmentText['messages'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
-			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants.'];
+			$response->fulfillmentMessages[]['text']['text'] = [$speech[$i]->nom . ' est dans le département ' . $speech[$i]->codeDepartement . ' et il y a ' . number_format($speech[$i]->population) . ' habitants. Quel est ton groupe de musique préféré?' ];
 			$i++;
 		}
 	}
