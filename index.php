@@ -58,6 +58,8 @@ if($method == 'POST'){
 		}
 
 		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
+		$response->fulfillmentText = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
+		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1]];
 		$response->fulfillmentMessages[]['text']['text'] = ["Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1]];
 	}
 	
