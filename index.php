@@ -59,7 +59,7 @@ if($method == 'POST'){
 $response->fulfillmentMessages = array(
 							array(
 								'text' => array(
-									0 => array(
+									'text' => array(
 										array(
 											'test1'
 										)
