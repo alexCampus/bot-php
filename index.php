@@ -56,11 +56,24 @@ if($method == 'POST'){
 		for ($i=0; $i <= 3; $i++) { 
 			array_push($array, $jsonMusic->topalbums->album[$i]->name);
 		}
-
+$response->fulfillmentMessages = array(
+							'text' => array(
+								'text' => array(
+									array(
+										'test1'
+									)
+								),
+								'text' => array(
+									array(
+										'test2'
+									)
+								),
+							)
+						);
 		// $response->fulfillmentText[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
 		// $response->fulfillmentText['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
-		$response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
-		$response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
+		// $response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
+		// $response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
 	}
 	
 	
@@ -71,5 +84,18 @@ else
 {
 	echo "Method not allowed";
 }
-
+$response->fulfillmentMessages = array(
+							'text' => array(
+								'text' => array(
+									array(
+										'test1'
+									)
+								),
+								'text' => array(
+									array(
+										'test2'
+									)
+								),
+							)
+						);
 ?>
