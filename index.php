@@ -80,7 +80,7 @@ if($method == 'POST'){
 		}
 		// $response->fulfillmentMessages[]['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
 	}
-	
+	var_dump($music);
 	
 	$response->source = "webhook";
 	echo json_encode($response);
