@@ -72,15 +72,15 @@ if($method == 'POST'){
 // 						);
 		// $response->fulfillmentText[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
 		// $response->fulfillmentText['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
-		var_dump($array);
 		if (count($array) > 0) {
 			$response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.   Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
 		} else {
 			$response->fulfillmentMessages[]['text']['text'][0] = 'Je ne connais pas ce groupe de musique';
 		}
 		// $response->fulfillmentMessages[]['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
+	} else {
+		$response->fulfillmentMessages[]['text']['text'][0] = "Oups je n'ai pas compris";
 	}
-	var_dump($music);
 	
 	$response->source = "webhook";
 	echo json_encode($response);
