@@ -64,7 +64,7 @@ $response->fulfillmentMessages = array(
 											'test1'
 										)
 									),
-									1 => array(
+									'text1' => array(
 										array(
 											'test2'
 										)
