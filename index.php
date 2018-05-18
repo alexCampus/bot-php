@@ -57,8 +57,8 @@ if($method == 'POST'){
 			array_push($array, $jsonMusic->topalbums->album[$i]->name);
 		}
 
-		$response->fulfillmentText['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
-		$response->fulfillmentText['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
+		$response->fulfillmentText[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
+		// $response->fulfillmentText['text']['text'][1] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes titres préférés sont  \n  \n : " . $array[0] . " et   \n  \n" . $array[1];
 		$response->fulfillmentMessages[]['text']['text'][0] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
 		$response->fulfillmentMessages[]['text']['text'][0][] = "Super j'adore " . $music . " moi aussi.  \n  \n Mes albums préférés sont  \n  \n : " . $array[0] . " et  \n  \n " . $array[1];
 	}
